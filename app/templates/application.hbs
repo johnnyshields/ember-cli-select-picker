@@ -1,0 +1,16 @@
+<div id="single-select-example">
+  <h2>Single Selection:</h2>
+  {{select-picker content=singleContent
+                  optionLabelPath="content.label"
+                  optionValuePath="content.value"}}
+</div>
+
+<div id="multiple-select-example">
+  <h2>Multiple Selections:</h2>
+  {{select-picker content=multipleContent
+                  multiple="true"
+                  prompt="Select one or more options"
+                  optionGroupPath="group"
+                  optionLabelPath="content.label"
+                  optionValuePath="content.value"}}
+</div>
