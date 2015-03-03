@@ -191,6 +191,17 @@ define('test-select-picker/components/select-picker', ['exports', 'ember'], func
   exports['default'] = SelectPickerComponent;
 
 });
+define('test-select-picker/controllers/application', ['exports', 'ember', 'test-select-picker/config/environment'], function (exports, Ember, config) {
+
+  'use strict';
+
+  var ApplicationController = Ember['default'].Controller.extend({
+    addonVersion: config['default'].APP.addonVersion
+  });
+
+  exports['default'] = ApplicationController;
+
+});
 define('test-select-picker/controllers/index', ['exports', 'ember'], function (exports, Ember) {
 
   'use strict';
@@ -760,6 +771,14 @@ define('test-select-picker/templates/application', ['exports'], function (export
         var el4 = dom.createTextNode("An Ember based reinvention of the select picker for Bootstrap 3.");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("p");
+        var el4 = dom.createElement("small");
+        var el5 = dom.createTextNode("Version: ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
         var el3 = dom.createTextNode("\n\n    ");
         dom.appendChild(el2, el3);
         var el3 = dom.createElement("ul");
@@ -793,7 +812,7 @@ define('test-select-picker/templates/application', ['exports'], function (export
       },
       render: function render(context, env, contextualElement) {
         var dom = env.dom;
-        var hooks = env.hooks, block = hooks.block, content = hooks.content;
+        var hooks = env.hooks, content = hooks.content, block = hooks.block;
         dom.detectNamespace(contextualElement);
         var fragment;
         if (env.useFragmentCache && dom.canClone) {
@@ -812,22 +831,25 @@ define('test-select-picker/templates/application', ['exports'], function (export
           fragment = this.build(dom);
         }
         var element0 = dom.childAt(fragment, [0]);
-        var element1 = dom.childAt(element0, [1, 5]);
-        if (this.cachedFragment) { dom.repairClonedNode(element1,[1,2,3,4,5]); }
-        var morph0 = dom.createMorphAt(element1,0,1);
-        var morph1 = dom.createMorphAt(element1,1,2);
-        var morph2 = dom.createMorphAt(element1,2,3);
-        var morph3 = dom.createMorphAt(element1,3,4);
-        var morph4 = dom.createMorphAt(element1,4,5);
-        var morph5 = dom.createMorphAt(element1,5,6);
-        var morph6 = dom.createMorphAt(element0,2,3);
-        block(env, morph0, context, "link-to", ["index"], {"tagName": "li"}, child0, null);
-        block(env, morph1, context, "link-to", ["install"], {"tagName": "li"}, child1, null);
-        block(env, morph2, context, "link-to", ["searching"], {"tagName": "li"}, child2, null);
-        block(env, morph3, context, "link-to", ["options"], {"tagName": "li"}, child3, null);
-        block(env, morph4, context, "link-to", ["i18n"], {"tagName": "li"}, child4, null);
-        block(env, morph5, context, "link-to", ["keyboard"], {"tagName": "li"}, child5, null);
-        content(env, morph6, context, "outlet");
+        var element1 = dom.childAt(element0, [1]);
+        var element2 = dom.childAt(element1, [7]);
+        if (this.cachedFragment) { dom.repairClonedNode(element2,[1,2,3,4,5]); }
+        var morph0 = dom.createMorphAt(dom.childAt(element1, [5, 0]),0,-1);
+        var morph1 = dom.createMorphAt(element2,0,1);
+        var morph2 = dom.createMorphAt(element2,1,2);
+        var morph3 = dom.createMorphAt(element2,2,3);
+        var morph4 = dom.createMorphAt(element2,3,4);
+        var morph5 = dom.createMorphAt(element2,4,5);
+        var morph6 = dom.createMorphAt(element2,5,6);
+        var morph7 = dom.createMorphAt(element0,2,3);
+        content(env, morph0, context, "addonVersion");
+        block(env, morph1, context, "link-to", ["index"], {"tagName": "li"}, child0, null);
+        block(env, morph2, context, "link-to", ["install"], {"tagName": "li"}, child1, null);
+        block(env, morph3, context, "link-to", ["searching"], {"tagName": "li"}, child2, null);
+        block(env, morph4, context, "link-to", ["options"], {"tagName": "li"}, child3, null);
+        block(env, morph5, context, "link-to", ["i18n"], {"tagName": "li"}, child4, null);
+        block(env, morph6, context, "link-to", ["keyboard"], {"tagName": "li"}, child5, null);
+        content(env, morph7, context, "outlet");
         return fragment;
       }
     };
@@ -1647,6 +1669,16 @@ define('test-select-picker/tests/app.jshint', function () {
   });
 
 });
+define('test-select-picker/tests/controllers/application.jshint', function () {
+
+  'use strict';
+
+  module('JSHint - controllers');
+  test('controllers/application.js should pass jshint', function() { 
+    ok(true, 'controllers/application.js should pass jshint.'); 
+  });
+
+});
 define('test-select-picker/tests/controllers/index.jshint', function () {
 
   'use strict';
@@ -1779,7 +1811,7 @@ catch(err) {
 if (runningTests) {
   require("test-select-picker/tests/test-helper");
 } else {
-  require("test-select-picker/app")["default"].create({"name":"test-select-picker","version":"0.0.0.854dd36a"});
+  require("test-select-picker/app")["default"].create({"addonVersion":"1.0.1","name":"test-select-picker","version":"0.0.0.863e6b79"});
 }
 
 /* jshint ignore:end */

@@ -16,6 +16,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      addonVersion: (function() {
+        var pkg = require('../node_modules/ember-cli-select-picker/package.json');
+        return pkg.version;
+      })()
     }
   };
 
