@@ -1630,7 +1630,7 @@ define('test-select-picker/templates/searching', ['exports'], function (exports)
         var morph0 = dom.createMorphAt(dom.childAt(fragment, [0, 3]),0,1);
         var morph1 = dom.createMorphAt(dom.childAt(fragment, [2, 3]),0,1);
         inline(env, morph0, context, "select-picker", [], {"content": get(env, context, "simpleSearchContent"), "multiple": "true", "liveSearch": "true", "optionGroupPath": "group", "optionLabelPath": "content.label", "optionValuePath": "content.value"});
-        inline(env, morph1, context, "select-picker", [], {"content": get(env, context, "advancedSearchContent"), "multiple": "true", "liveSearch": "true", "optionGroupPath": "group", "optionLabelPath": "content.label", "optionValuePath": "content.value"});
+        inline(env, morph1, context, "select-picker", [], {"content": get(env, context, "advancedSearchContent"), "multiple": "true", "liveSearch": "advanced", "optionGroupPath": "group", "optionLabelPath": "content.label", "optionValuePath": "content.value"});
         return fragment;
       }
     };
@@ -1779,7 +1779,7 @@ catch(err) {
 if (runningTests) {
   require("test-select-picker/tests/test-helper");
 } else {
-  require("test-select-picker/app")["default"].create({"name":"test-select-picker","version":"0.0.0.982249de"});
+  require("test-select-picker/app")["default"].create({"name":"test-select-picker","version":"0.0.0.cb16d719"});
 }
 
 /* jshint ignore:end */
