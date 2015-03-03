@@ -6,6 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('install');
   this.route('searching');
   this.route('options');
   this.route('i18n');
