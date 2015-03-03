@@ -1779,7 +1779,7 @@ catch(err) {
 if (runningTests) {
   require("test-select-picker/tests/test-helper");
 } else {
-  require("test-select-picker/app")["default"].create({"name":"test-select-picker","version":"0.0.0.0d9634f4"});
+  require("test-select-picker/app")["default"].create({"name":"test-select-picker","version":"0.0.0.982249de"});
 }
 
 /* jshint ignore:end */
