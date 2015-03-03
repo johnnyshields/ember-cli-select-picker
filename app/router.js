@@ -6,6 +6,10 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('searching');
+  this.route('options');
+  this.route('i18n');
+  this.route('keyboard');
 });
 
 export default Router;

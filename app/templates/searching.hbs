@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Single Search</h3>
+  </div>
+  <div class="panel-body">
+    {{select-picker content=simpleSearchContent
+                    multiple="true"
+                    liveSearch="true"
+                    optionGroupPath="group"
+                    optionLabelPath="content.label"
+                    optionValuePath="content.value"}}
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Advanced Search</h3>
+  </div>
+  <div class="panel-body">
+    {{select-picker content=advancedSearchContent
+                    multiple="true"
+                    liveSearch="true"
+                    optionGroupPath="group"
+                    optionLabelPath="content.label"
+                    optionValuePath="content.value"}}
+  </div>
+</div>
+
