@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 function popularity() {
-  return chance.pick(['Popular states', 'Unpopular states']);
+  return chance.pick(['Great states', 'Awesome states']);
 }
 
 function stateList() {

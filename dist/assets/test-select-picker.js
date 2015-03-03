@@ -220,7 +220,7 @@ define('test-select-picker/controllers/searching', ['exports', 'ember'], functio
   'use strict';
 
   function popularity() {
-    return chance.pick(["Popular states", "Unpopular states"]);
+    return chance.pick(["Great states", "Awesome states"]);
   }
 
   function stateList() {
@@ -1779,7 +1779,7 @@ catch(err) {
 if (runningTests) {
   require("test-select-picker/tests/test-helper");
 } else {
-  require("test-select-picker/app")["default"].create({"name":"test-select-picker","version":"0.0.0.cb16d719"});
+  require("test-select-picker/app")["default"].create({"name":"test-select-picker","version":"0.0.0.854dd36a"});
 }
 
 /* jshint ignore:end */
