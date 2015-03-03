@@ -282,6 +282,7 @@ define('test-select-picker/router', ['exports', 'ember', 'test-select-picker/con
   });
 
   Router.map(function () {
+    this.route("install");
     this.route("searching");
     this.route("options");
     this.route("i18n");
@@ -377,6 +378,79 @@ define('test-select-picker/templates/application', ['exports'], function (export
           cachedFragment: null,
           hasRendered: false,
           build: function build(dom) {
+            var el0 = dom.createTextNode("Installing");
+            return el0;
+          },
+          render: function render(context, env, contextualElement) {
+            var dom = env.dom;
+            dom.detectNamespace(contextualElement);
+            var fragment;
+            if (env.useFragmentCache && dom.canClone) {
+              if (this.cachedFragment === null) {
+                fragment = this.build(dom);
+                if (this.hasRendered) {
+                  this.cachedFragment = fragment;
+                } else {
+                  this.hasRendered = true;
+                }
+              }
+              if (this.cachedFragment) {
+                fragment = dom.cloneNode(this.cachedFragment, true);
+              }
+            } else {
+              fragment = this.build(dom);
+            }
+            return fragment;
+          }
+        };
+      }());
+      return {
+        isHTMLBars: true,
+        blockParams: 0,
+        cachedFragment: null,
+        hasRendered: false,
+        build: function build(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("        ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        render: function render(context, env, contextualElement) {
+          var dom = env.dom;
+          var hooks = env.hooks, block = hooks.block;
+          dom.detectNamespace(contextualElement);
+          var fragment;
+          if (env.useFragmentCache && dom.canClone) {
+            if (this.cachedFragment === null) {
+              fragment = this.build(dom);
+              if (this.hasRendered) {
+                this.cachedFragment = fragment;
+              } else {
+                this.hasRendered = true;
+              }
+            }
+            if (this.cachedFragment) {
+              fragment = dom.cloneNode(this.cachedFragment, true);
+            }
+          } else {
+            fragment = this.build(dom);
+          }
+          var morph0 = dom.createMorphAt(fragment,0,1,contextualElement);
+          block(env, morph0, context, "link-to", ["install"], {"class": "btn btn-lg"}, child0, null);
+          return fragment;
+        }
+      };
+    }());
+    var child2 = (function() {
+      var child0 = (function() {
+        return {
+          isHTMLBars: true,
+          blockParams: 0,
+          cachedFragment: null,
+          hasRendered: false,
+          build: function build(dom) {
             var el0 = dom.createTextNode("Searching");
             return el0;
           },
@@ -442,7 +516,7 @@ define('test-select-picker/templates/application', ['exports'], function (export
         }
       };
     }());
-    var child2 = (function() {
+    var child3 = (function() {
       var child0 = (function() {
         return {
           isHTMLBars: true,
@@ -515,7 +589,7 @@ define('test-select-picker/templates/application', ['exports'], function (export
         }
       };
     }());
-    var child3 = (function() {
+    var child4 = (function() {
       var child0 = (function() {
         return {
           isHTMLBars: true,
@@ -588,7 +662,7 @@ define('test-select-picker/templates/application', ['exports'], function (export
         }
       };
     }());
-    var child4 = (function() {
+    var child5 = (function() {
       var child0 = (function() {
         return {
           isHTMLBars: true,
@@ -700,6 +774,8 @@ define('test-select-picker/templates/application', ['exports'], function (export
         dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("");
         dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("");
+        dom.appendChild(el3, el4);
         var el4 = dom.createTextNode("    ");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
@@ -737,19 +813,21 @@ define('test-select-picker/templates/application', ['exports'], function (export
         }
         var element0 = dom.childAt(fragment, [0]);
         var element1 = dom.childAt(element0, [1, 5]);
-        if (this.cachedFragment) { dom.repairClonedNode(element1,[1,2,3,4]); }
+        if (this.cachedFragment) { dom.repairClonedNode(element1,[1,2,3,4,5]); }
         var morph0 = dom.createMorphAt(element1,0,1);
         var morph1 = dom.createMorphAt(element1,1,2);
         var morph2 = dom.createMorphAt(element1,2,3);
         var morph3 = dom.createMorphAt(element1,3,4);
         var morph4 = dom.createMorphAt(element1,4,5);
-        var morph5 = dom.createMorphAt(element0,2,3);
+        var morph5 = dom.createMorphAt(element1,5,6);
+        var morph6 = dom.createMorphAt(element0,2,3);
         block(env, morph0, context, "link-to", ["index"], {"tagName": "li"}, child0, null);
-        block(env, morph1, context, "link-to", ["searching"], {"tagName": "li"}, child1, null);
-        block(env, morph2, context, "link-to", ["options"], {"tagName": "li"}, child2, null);
-        block(env, morph3, context, "link-to", ["i18n"], {"tagName": "li"}, child3, null);
-        block(env, morph4, context, "link-to", ["keyboard"], {"tagName": "li"}, child4, null);
-        content(env, morph5, context, "outlet");
+        block(env, morph1, context, "link-to", ["install"], {"tagName": "li"}, child1, null);
+        block(env, morph2, context, "link-to", ["searching"], {"tagName": "li"}, child2, null);
+        block(env, morph3, context, "link-to", ["options"], {"tagName": "li"}, child3, null);
+        block(env, morph4, context, "link-to", ["i18n"], {"tagName": "li"}, child4, null);
+        block(env, morph5, context, "link-to", ["keyboard"], {"tagName": "li"}, child5, null);
+        content(env, morph6, context, "outlet");
         return fragment;
       }
     };
@@ -1229,6 +1307,226 @@ define('test-select-picker/templates/index', ['exports'], function (exports) {
         var morph1 = dom.createMorphAt(dom.childAt(fragment, [2, 3]),0,1);
         inline(env, morph0, context, "select-picker", [], {"content": get(env, context, "singleContent"), "optionLabelPath": "content.label", "optionValuePath": "content.value"});
         inline(env, morph1, context, "select-picker", [], {"content": get(env, context, "multipleContent"), "multiple": "true", "optionGroupPath": "group", "optionLabelPath": "content.label", "optionValuePath": "content.value"});
+        return fragment;
+      }
+    };
+  }()));
+
+});
+define('test-select-picker/templates/install', ['exports'], function (exports) {
+
+  'use strict';
+
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1,"class","panel panel-default");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","panel-heading");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("h3");
+        dom.setAttribute(el3,"class","panel-title");
+        var el4 = dom.createTextNode("Installing");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","panel-body");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("p");
+        var el4 = dom.createTextNode("This is an ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4,"href","");
+        var el5 = dom.createTextNode("Ember CLI Addon");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(" and can be installed through ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("code");
+        var el5 = dom.createTextNode("npm");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(".");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("pre");
+        var el4 = dom.createTextNode("$ npm install --save-dev ember-cli-select-picker");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1,"class","panel panel-default");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","panel-heading");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("h3");
+        dom.setAttribute(el3,"class","panel-title");
+        var el4 = dom.createTextNode("Contributing");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","panel-body");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("p");
+        var el4 = dom.createTextNode("Contributions are welcome. All source code is managed through ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4,"href","https://github.com/");
+        var el5 = dom.createTextNode("GitHub");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(".");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("p");
+        var el4 = dom.createTextNode("\n      ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4,"href","https://github.com/sukima/ember-cli-select-picker/");
+        dom.setAttribute(el4,"class","btn btn-primary btn-lg active");
+        var el5 = dom.createTextNode("\n        View source on GitHub\n      ");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode("\n    ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
+        return fragment;
+      }
+    };
+  }()));
+
+});
+define('test-select-picker/templates/keyboard', ['exports'], function (exports) {
+
+  'use strict';
+
+  exports['default'] = Ember.HTMLBars.template((function() {
+    return {
+      isHTMLBars: true,
+      blockParams: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      build: function build(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1,"class","panel panel-default");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","panel-heading");
+        var el3 = dom.createTextNode("\n    TODO: Feature not implemented yet.\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2,"class","panel-body");
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("p");
+        var el4 = dom.createTextNode("To help contribute see the ");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createElement("a");
+        dom.setAttribute(el4,"href","https://github.com/sukima/ember-cli-select-picker/");
+        var el5 = dom.createTextNode("GitHub Site");
+        dom.appendChild(el4, el5);
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(".");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n  ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      render: function render(context, env, contextualElement) {
+        var dom = env.dom;
+        dom.detectNamespace(contextualElement);
+        var fragment;
+        if (env.useFragmentCache && dom.canClone) {
+          if (this.cachedFragment === null) {
+            fragment = this.build(dom);
+            if (this.hasRendered) {
+              this.cachedFragment = fragment;
+            } else {
+              this.hasRendered = true;
+            }
+          }
+          if (this.cachedFragment) {
+            fragment = dom.cloneNode(this.cachedFragment, true);
+          }
+        } else {
+          fragment = this.build(dom);
+        }
         return fragment;
       }
     };
