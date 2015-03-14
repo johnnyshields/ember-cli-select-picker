@@ -1,0 +1,6 @@
+{
+  "name": "gh-pages-post-build",
+  "keywords": [
+    "ember-addon"
+  ]
+}
