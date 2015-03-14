@@ -1659,130 +1659,6 @@ define('test-select-picker/templates/searching', ['exports'], function (exports)
   }()));
 
 });
-define('test-select-picker/tests/app.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - .');
-  test('app.js should pass jshint', function() { 
-    ok(true, 'app.js should pass jshint.'); 
-  });
-
-});
-define('test-select-picker/tests/controllers/application.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - controllers');
-  test('controllers/application.js should pass jshint', function() { 
-    ok(true, 'controllers/application.js should pass jshint.'); 
-  });
-
-});
-define('test-select-picker/tests/controllers/index.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - controllers');
-  test('controllers/index.js should pass jshint', function() { 
-    ok(true, 'controllers/index.js should pass jshint.'); 
-  });
-
-});
-define('test-select-picker/tests/controllers/searching.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - controllers');
-  test('controllers/searching.js should pass jshint', function() { 
-    ok(true, 'controllers/searching.js should pass jshint.'); 
-  });
-
-});
-define('test-select-picker/tests/helpers/resolver', ['exports', 'ember/resolver', 'test-select-picker/config/environment'], function (exports, Resolver, config) {
-
-  'use strict';
-
-  var resolver = Resolver['default'].create();
-
-  resolver.namespace = {
-    modulePrefix: config['default'].modulePrefix,
-    podModulePrefix: config['default'].podModulePrefix
-  };
-
-  exports['default'] = resolver;
-
-});
-define('test-select-picker/tests/helpers/resolver.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - helpers');
-  test('helpers/resolver.js should pass jshint', function() { 
-    ok(true, 'helpers/resolver.js should pass jshint.'); 
-  });
-
-});
-define('test-select-picker/tests/helpers/start-app', ['exports', 'ember', 'test-select-picker/app', 'test-select-picker/router', 'test-select-picker/config/environment'], function (exports, Ember, Application, Router, config) {
-
-  'use strict';
-
-
-
-  exports['default'] = startApp;
-  function startApp(attrs) {
-    var application;
-
-    var attributes = Ember['default'].merge({}, config['default'].APP);
-    attributes = Ember['default'].merge(attributes, attrs); // use defaults, but you can override;
-
-    Ember['default'].run(function () {
-      application = Application['default'].create(attributes);
-      application.setupForTesting();
-      application.injectTestHelpers();
-    });
-
-    return application;
-  }
-
-});
-define('test-select-picker/tests/helpers/start-app.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - helpers');
-  test('helpers/start-app.js should pass jshint', function() { 
-    ok(true, 'helpers/start-app.js should pass jshint.'); 
-  });
-
-});
-define('test-select-picker/tests/router.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - .');
-  test('router.js should pass jshint', function() { 
-    ok(true, 'router.js should pass jshint.'); 
-  });
-
-});
-define('test-select-picker/tests/test-helper', ['test-select-picker/tests/helpers/resolver', 'ember-qunit'], function (resolver, ember_qunit) {
-
-	'use strict';
-
-	ember_qunit.setResolver(resolver['default']);
-
-});
-define('test-select-picker/tests/test-helper.jshint', function () {
-
-  'use strict';
-
-  module('JSHint - .');
-  test('test-helper.js should pass jshint', function() { 
-    ok(true, 'test-helper.js should pass jshint.'); 
-  });
-
-});
 /* jshint ignore:start */
 
 /* jshint ignore:end */
@@ -1811,8 +1687,7 @@ catch(err) {
 if (runningTests) {
   require("test-select-picker/tests/test-helper");
 } else {
-  require("test-select-picker/app")["default"].create({"addonVersion":"1.0.1","name":"test-select-picker","version":"0.0.0.863e6b79"});
+  require("test-select-picker/app")["default"].create({"addonVersion":"1.0.1","name":"test-select-picker","version":"0.0.0.d3a40446"});
 }
 
 /* jshint ignore:end */
-//# sourceMappingURL=test-select-picker.map
