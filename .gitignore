@@ -14,3 +14,12 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
+
+# Not used for gh-pages
+dist/assets/failed.png
+dist/assets/passed.png
+dist/assets/test-loader.js
+dist/assets/test-support.css
+dist/assets/test-support.js
+dist/testem.js
+dist/tests/
