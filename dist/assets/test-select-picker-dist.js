@@ -69,6 +69,23 @@ define('test-select-picker/components/select-picker', ['exports', 'ember', 'test
 
     classNames: ["select-picker"],
 
+    didInsertElement: function didInsertElement() {
+      var eventName = "click." + this.get("elementId");
+      $(document).on(eventName, (function (e) {
+        if (this.get("keepDropdownOpen")) {
+          this.set("keepDropdownOpen", false);
+          return;
+        }
+        if (this.element && !$.contains(this.element, e.target)) {
+          this.set("showDropdown", false);
+        }
+      }).bind(this));
+    },
+
+    willDestroyElement: function willDestroyElement() {
+      $(document).off("." + this.get("elementId"));
+    },
+
     groupedContentList: (function () {
       var lastGroup;
       return this.get("contentList").map(function (item) {
@@ -227,23 +244,6 @@ define('test-select-picker/mixins/select-picker', ['exports', 'ember'], function
     prompt: false,
     summaryMessage: "%@ items selected",
 
-    didInsertElement: function didInsertElement() {
-      var eventName = "click." + this.get("elementId");
-      $(document).on(eventName, (function (e) {
-        if (this.get("keepDropdownOpen")) {
-          this.set("keepDropdownOpen", false);
-          return;
-        }
-        if (this.element && !$.contains(this.element, e.target)) {
-          this.set("showDropdown", false);
-        }
-      }).bind(this));
-    },
-
-    willDestroyElement: function willDestroyElement() {
-      $(document).off("." + this.get("elementId"));
-    },
-
     menuButtonId: (function () {
       return this.get("elementId") + "-dropdown-menu";
     }).property("elementId"),
@@ -362,9 +362,9 @@ define('test-select-picker/mixins/select-picker', ['exports', 'ember'], function
 
     actions: {
       selectItem: function selectItem(selected) {
-        this.set("keepDropdownOpen", true);
         if (!this.get("disabled")) {
           if (this.get("multiple")) {
+            this.set("keepDropdownOpen", true);
             this.toggleSelection(selected.item);
           } else {
             this.set("selection", selected.item);
@@ -1414,8 +1414,8 @@ define('test-select-picker/templates/components/list-picker', ['exports'], funct
         var morph1 = dom.createMorphAt(element9,0,1);
         var morph2 = dom.createMorphAt(element9,1,2);
         var morph3 = dom.createMorphAt(element9,2,-1);
-        inline(env, morph0, context, "view", ["select"], {"class": "native-select hidden", "content": get(env, context, "content"), "selection": get(env, context, "selection"), "value": get(env, context, "value"), "title": get(env, context, "title"), "prompt": get(env, context, "prompt"), "multiple": get(env, context, "multiple"), "disabled": get(env, context, "disabled"), "optionGroupPath": get(env, context, "optionGroupPath"), "optionLabelPath": get(env, context, "optionLabelPath"), "optionValuePath": get(env, context, "optionValuePath")});
-        element(env, element9, context, "bind-attr", [], {"class": ":bs-select disabled:disabled"});
+        inline(env, morph0, context, "view", ["select"], {"class": "native-select visible-xs-inline", "content": get(env, context, "content"), "selection": get(env, context, "selection"), "value": get(env, context, "value"), "title": get(env, context, "title"), "prompt": get(env, context, "prompt"), "multiple": get(env, context, "multiple"), "disabled": get(env, context, "disabled"), "optionGroupPath": get(env, context, "optionGroupPath"), "optionLabelPath": get(env, context, "optionLabelPath"), "optionValuePath": get(env, context, "optionValuePath")});
+        element(env, element9, context, "bind-attr", [], {"class": ":bs-select :hidden-xs disabled:disabled"});
         block(env, morph1, context, "if", [get(env, context, "liveSearch")], {}, child0, null);
         block(env, morph2, context, "if", [get(env, context, "multiple")], {}, child1, null);
         block(env, morph3, context, "each", [get(env, context, "groupedContentList")], {}, child2, null);
@@ -2416,7 +2416,7 @@ catch(err) {
 if (runningTests) {
   require("test-select-picker/tests/test-helper");
 } else {
-  require("test-select-picker/app")["default"].create({"addonVersion":"1.1.1","name":"test-select-picker","version":"0.0.0.83b1146d"});
+  require("test-select-picker/app")["default"].create({"addonVersion":"1.1.2","name":"test-select-picker","version":"0.0.0.a2a0b180"});
 }
 
 /* jshint ignore:end */
