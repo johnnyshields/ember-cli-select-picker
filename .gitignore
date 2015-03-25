@@ -21,5 +21,10 @@ dist/assets/passed.png
 dist/assets/test-loader.js
 dist/assets/test-support.css
 dist/assets/test-support.js
+dist/assets/test-select-picker.css
+dist/assets/test-select-picker.js
+dist/assets/vender.css
+dist/assets/vender.js
+dist/index.html
 dist/testem.js
 dist/tests/
