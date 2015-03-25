@@ -23,8 +23,8 @@ dist/assets/test-support.css
 dist/assets/test-support.js
 dist/assets/test-select-picker.css
 dist/assets/test-select-picker.js
-dist/assets/vender.css
-dist/assets/vender.js
+dist/assets/vendor.css
+dist/assets/vendor.js
 dist/index.html
 dist/testem.js
 dist/tests/
