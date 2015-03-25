@@ -9,7 +9,9 @@ var app = new EmberApp({
     enabled: false
   },
   fingerprint: {
-    enabled: false
+    customHash: 'dist',
+    exclude: ['screen-shot.png'],
+    prepend: (EmberApp.env() === 'production' ? 'dist/' : '')
   },
   minifyCSS: {
     enabled: false
