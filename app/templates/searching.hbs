@@ -3,12 +3,26 @@
     <h3 class="panel-title">Single Search</h3>
   </div>
   <div class="panel-body">
-    {{select-picker content=simpleSearchContent
-                    multiple="true"
-                    liveSearch="true"
-                    optionGroupPath="group"
-                    optionLabelPath="content.label"
-                    optionValuePath="content.value"}}
+    <div class="row">
+      <div class="col-sm-4">
+        {{select-picker content=simpleSearchContent
+                        multiple="true"
+                        liveSearch="true"
+                        optionGroupPath="group"
+                        optionLabelPath="content.label"
+                        optionValuePath="content.value"}}
+      </div>
+      <div class="col-sm-8">
+{{#highlight-code lang="handlebars"}}
+\{{select-picker content=simpleSearchContent
+                multiple="true"
+                liveSearch="true"
+                optionGroupPath="group"
+                optionLabelPath="content.label"
+                optionValuePath="content.value"}}
+{{/highlight-code}}
+      </div>
+    </div>
   </div>
 </div>
 
@@ -17,12 +31,26 @@
     <h3 class="panel-title">Advanced Search</h3>
   </div>
   <div class="panel-body">
-    {{select-picker content=advancedSearchContent
-                    multiple="true"
-                    liveSearch="advanced"
-                    optionGroupPath="group"
-                    optionLabelPath="content.label"
-                    optionValuePath="content.value"}}
+    <div class="row">
+      <div class="col-sm-4">
+        {{select-picker content=advancedSearchContent
+                        multiple="true"
+                        liveSearch="advanced"
+                        optionGroupPath="group"
+                        optionLabelPath="content.label"
+                        optionValuePath="content.value"}}
+      </div>
+      <div class="col-sm-8">
+{{#highlight-code lang="handlebars"}}
+\{{select-picker content=advancedSearchContent
+                multiple="true"
+                liveSearch="advanced"
+                optionGroupPath="group"
+                optionLabelPath="content.label"
+                optionValuePath="content.value"}}
+{{/highlight-code}}
+      </div>
+    </div>
   </div>
 </div>
 
@@ -31,11 +59,25 @@
     <h3 class="panel-title">List Picker</h3>
   </div>
   <div class="panel-body">
-    {{list-picker content=advancedSearchContent
-                  multiple="true"
-                  liveSearch="advanced"
-                  optionGroupPath="group"
-                  optionLabelPath="content.label"
-                  optionValuePath="content.value"}}
+    <div class="row">
+      <div class="col-sm-4">
+        {{list-picker content=advancedSearchContent
+                      multiple="true"
+                      liveSearch="advanced"
+                      optionGroupPath="group"
+                      optionLabelPath="content.label"
+                      optionValuePath="content.value"}}
+      </div>
+      <div class="col-sm-8">
+{{#highlight-code lang="handlebars"}}
+\{{list-picker content=advancedSearchContent
+              multiple="true"
+              liveSearch="advanced"
+              optionGroupPath="group"
+              optionLabelPath="content.label"
+              optionValuePath="content.value"}}
+{{/highlight-code}}
+      </div>
+    </div>
   </div>
 </div>
