@@ -36,6 +36,8 @@ var app = new EmberApp({
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 app.import('bower_components/chance/chance.js');
+app.import('bower_components/highlightjs/styles/github.css');
+app.import('bower_components/highlightjs/highlight.pack.js');
 
 var fontTree = pickFiles('bower_components/bootstrap/dist/fonts', {
   srcDir:  '/',

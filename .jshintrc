@@ -4,7 +4,8 @@
     "window",
     "-Promise",
     "Chance",
-    "chance"
+    "chance",
+    "hljs"
   ],
   "browser": true,
   "boss": true,
